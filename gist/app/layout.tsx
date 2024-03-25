@@ -1,7 +1,12 @@
 import "@/styles/globals.css";
+import React from "react"
 import { Metadata } from "next";
+import {Divider} from "@nextui-org/react"
 import { siteConfig } from "@/config/site";
 import { Providers } from "./providers";
+import GISTNavbar from "@/components/general/navbar";
+import Footer from "@/components/general/footer";
+import isAuthenticated from "@/utils/auth";
 
 export const metadata = {
 	title: {
@@ -20,7 +25,7 @@ export const metadata = {
 	},
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
@@ -29,13 +34,12 @@ export default function RootLayout({
 		<html lang="en" suppressHydrationWarning>
 			<head />
 			<body>
-				<Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
+				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
 					<div>
-						<main>
-							{children}
-						</main>
-						<footer>
-						</footer>
+						<GISTNavbar />
+						<Divider className="my-4" />
+						{children}
+						<Footer />
 					</div>
 				</Providers>
 			</body>

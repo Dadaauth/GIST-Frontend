@@ -8,22 +8,38 @@ export const siteConfig = {
 			label: "Home",
 			href: "/",
 		},
-    {
-      label: "Docs",
-      href: "/docs",
-    },
-    {
-      label: "Pricing",
-      href: "/pricing",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
-      href: "/about",
-    }
+		{
+			label: "Docs",
+			href: "/docs",
+		},
+		{
+			label: "Pricing",
+			href: "/pricing",
+		},
+		{
+			label: "Blog",
+			href: "/blog",
+		},
+		{
+			label: "About",
+			href: "/about",
+		},
+		{
+			label: "Profile",
+			href: "/profile",
+		},
+		{
+			label: "Messages",
+			href: "/messages"
+		},
+		{
+			label: "Friends",
+			href:"/friends",
+		},
+		{
+			label: "Find Friends",
+			href:"/find_friends",
+		}
 	],
 	navMenuItems: [
 		{
@@ -53,6 +69,18 @@ export const siteConfig = {
 		{
 			label: "Help & Feedback",
 			href: "/help-feedback",
+		},
+		{
+			label: "Messages",
+			href: "/messages"
+		},
+		{
+			label: "Find Friends",
+			href:"/find_friends",
+		},
+		{
+			label: "Friends",
+			href:"/friends",
 		},
 		{
 			label: "Logout",
