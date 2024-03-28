@@ -77,9 +77,10 @@ export default function AuthFormModal({onOpen_1, onOpenChange_1, onOpen_2, onOpe
 			if (await response.ok) {
 				// const data = await response.json();
 				// router.push('/')
-				onOpenChange_1();
+				// onOpenChange_1();
+                console.log(await response.json())
+                setSignInFormMessage("Login Successful! Please reload the page to continue");
                 router.refresh();
-                
 			} else {
 				let error = await response.json();
 				console.log("error:", error);
@@ -147,11 +148,9 @@ export default function AuthFormModal({onOpen_1, onOpenChange_1, onOpen_2, onOpe
                                 <Button color="danger" variant="flat" onPress={onClose}>
                                 Close
                                 </Button>
-                                <Link color="warning" href={pathname}>
-                                    <Button color="primary" onPress={handleSignInSubmit}>
-                                    Sign in
-                                    </Button>
-                                </Link>
+                                <Button color="primary" onPress={handleSignInSubmit}>
+                                Sign in
+                                </Button>
                             </ModalFooter>
                         </>
                     )}

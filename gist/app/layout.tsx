@@ -6,7 +6,6 @@ import { siteConfig } from "@/config/site";
 import { Providers } from "./providers";
 import GISTNavbar from "@/components/general/navbar";
 import Footer from "@/components/general/footer";
-import isAuthenticated from "@/utils/auth";
 
 export const metadata = {
 	title: {

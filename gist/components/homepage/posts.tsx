@@ -26,9 +26,9 @@ export default function Posts(props) {
                     <p>
                         {props.content}
                     </p>
-                    <span className="pt-2">
+                    {/* <span className="pt-2">
                         {props.hashtag}
-                    </span>
+                    </span> */}
                 </CardBody>
                 <CardFooter className="gap-3">
                     <Button color="success" variant="flat">
