@@ -1,4 +1,5 @@
 import React from "react";
+import Cookies from "js-cookie";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Checkbox} from "@nextui-org/react";
 import { useRouter, usePathname } from "next/navigation";
 import {MailIcon, LockIcon} from '@/components/general/icons';
@@ -32,7 +33,11 @@ export default function AuthFormModal({onOpen_1, onOpenChange_1, onOpen_2, onOpe
 			});
 			const response = await fetch('http://127.0.0.1:5000/api/v1.0/usermanagement/auth/signup', {
 				method: 'POST',
-				body: formDataToSend
+				body: formDataToSend,
+                credentials: "include",
+                headers: {
+                    'X-CSRF-Token': Cookies.get("csrf_access_token")
+                }
 			});
 			if (response.ok){
 				onOpenChange_2();

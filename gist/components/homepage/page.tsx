@@ -10,6 +10,7 @@ import OnlineFriends from "../general/online_friends";
 
 
 const backend_url = process.env.NEXT_PUBLIC_BACKEND_API_URL;
+const static_url = process.env.NEXT_PUBLIC_STATIC_CONTENT_URL;
 
 
 export default function HomePageComponent({posts}) {
@@ -50,7 +51,8 @@ export default function HomePageComponent({posts}) {
         })
         if (response.ok) {
             console.log(await response.json())
-			onOpenChange();
+			setPostFormMessage("Post added successfully. This modal will close in 5s. Please reload the page to see your post.")
+			setTimeout(onOpenChange, 5000)
         }
     }
     return (
@@ -66,10 +68,10 @@ export default function HomePageComponent({posts}) {
 				{posts.map((item, index) => (
 					<Posts 
 						key={item.id}
-						username={item.user.first_name}
+						username={`${item.user.first_name} ${item.user.last_name}`}
 						email={item.user.email}
 						content={item.content}
-						profile_img="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+						profile_img={`${static_url}/${item.user.profile_pic_name}`}
 					/>
 				))}
 				<Spacer x={2} />
@@ -80,6 +82,7 @@ export default function HomePageComponent({posts}) {
 							<>
 								<ModalHeader className="flex flex-col gap-1">Share an Innovation..</ModalHeader>
 								<ModalBody>
+									{postFormMessage}
 									<textarea onChange={handlePostFormChange} name="content" className="font-serif text-slate-500 italic w-full h-32 p-2 border border-gray-400 rounded" placeholder="Share your ideas..."></textarea>
 								</ModalBody>
 								<ModalFooter>

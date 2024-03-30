@@ -26,7 +26,7 @@ export const siteConfig = {
 		},
 		{
 			label: "Profile",
-			href: "/profile",
+			href: "/profile/me",
 		},
 		{
 			label: "Messages",
@@ -44,7 +44,7 @@ export const siteConfig = {
 	navMenuItems: [
 		{
 			label: "Profile",
-			href: "/profile",
+			href: "/profile/me",
 		},
 		{
 			label: "Dashboard",

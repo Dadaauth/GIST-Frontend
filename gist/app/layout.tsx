@@ -7,6 +7,8 @@ import { Providers } from "./providers";
 import GISTNavbar from "@/components/general/navbar";
 import Footer from "@/components/general/footer";
 
+import checkAuthStatus from "@/utils/auth";
+
 export const metadata = {
 	title: {
 		default: siteConfig.name,
@@ -29,13 +31,14 @@ export default async function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
+	let [loggedIn, currentUser] =  await Promise.resolve(checkAuthStatus());
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<head />
 			<body>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
 					<div>
-						<GISTNavbar />
+						{await <GISTNavbar loggedIn={loggedIn} currentUser={currentUser}/>}
 						<Divider className="my-4" />
 						{children}
 						<Footer />

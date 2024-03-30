@@ -9,6 +9,7 @@ import { siteConfig } from "@/config/site";
 import AuthFormModal from './authForm';
 import SearchBar from './searchbar';
 
+const static_content = process.env.NEXT_PUBLIC_STATIC_CONTENT_URL;
 
 export default function NavCard({LoggedIn, currentUser}) {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false)
@@ -31,6 +32,7 @@ export default function NavCard({LoggedIn, currentUser}) {
                 )}
                 <NavbarEndContent // Custom component component code below
                     LoggedIn={LoggedIn}
+					currentUser={currentUser}
                     isMenuOpen={isMenuOpen}
                     onOpen_1={onOpen_1}
                     onOpen_2={onOpen_2}
@@ -49,7 +51,7 @@ export default function NavCard({LoggedIn, currentUser}) {
 }
 
 
-function NavbarEndContent ({LoggedIn, isMenuOpen, onOpen_1, onOpen_2}) {
+function NavbarEndContent ({LoggedIn, isMenuOpen, currentUser, onOpen_1, onOpen_2}) {
 	const logOut = async () => {
 		const backend_url = process.env.NEXT_PUBLIC_BACKEND_API_URL
 		const response = await fetch(`${backend_url}/v1.0/usermanagement/auth/logout`, {
@@ -107,8 +109,7 @@ function NavbarEndContent ({LoggedIn, isMenuOpen, onOpen_1, onOpen_2}) {
 								</Link>
 							</Badge>
 						</span>
-						<Avatar className="hidden sm:block" showFallback isBordered color="success" src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
-
+						<Avatar className="hidden sm:block" showFallback isBordered color="success" name={currentUser.first_name} src={`${static_content}/${currentUser.profile_pic_name}`} />
 					</>
 				):
 				(<>
