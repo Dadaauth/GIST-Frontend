@@ -5,6 +5,8 @@ import { useRouter, usePathname } from "next/navigation";
 import {MailIcon, LockIcon} from '@/components/general/icons';
 import {Input, Link, Button} from "@nextui-org/react";
 
+const backend_url = process.env.NEXT_PUBLIC_BACKEND_API_URL;
+
 export default function AuthFormModal({onOpen_1, onOpenChange_1, onOpen_2, onOpenChange_2, isOpen_1, isOpen_2}) {
     const pathname = usePathname();
     const router = useRouter();
@@ -31,7 +33,7 @@ export default function AuthFormModal({onOpen_1, onOpenChange_1, onOpen_2, onOpe
 			Object.entries(signUpFormData).forEach(([key, value])=> {
 				formDataToSend.append(key, value);
 			});
-			const response = await fetch('http://127.0.0.1:5000/api/v1.0/usermanagement/auth/signup', {
+			const response = await fetch(`${backend_url}/v1.0/usermanagement/auth/signup`, {
 				method: 'POST',
 				body: formDataToSend,
                 credentials: "include",
@@ -71,7 +73,7 @@ export default function AuthFormModal({onOpen_1, onOpenChange_1, onOpen_2, onOpe
 	};
 	const handleSignInSubmit = async (e) => {
 		try {
-			const response = await fetch('http://127.0.0.1:5000/api/v1.0/usermanagement/auth/login', {
+			const response = await fetch(`${backend_url}/v1.0/usermanagement/auth/login`, {
 				method: 'POST',
 				credentials: 'include',
 				headers: {

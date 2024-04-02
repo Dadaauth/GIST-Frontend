@@ -1,0 +1,41 @@
+
+> next-app-template@0.0.1 start
+> next start -p 80
+
+   ▲ Next.js 14.1.4
+   - Local:        http://localhost:80
+
+ ✓ Ready in 493ms
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+TypeError: fetch failed
+    at node:internal/deps/undici/undici:13737:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:5000
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1605:16)
+      at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 5000
+  }
+}
+TypeError: fetch failed
+    at node:internal/deps/undici/undici:13737:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:5000
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1605:16)
+      at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 5000
+  }
+}
+[Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error.] {
+  digest: '2205397173'
+}
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
