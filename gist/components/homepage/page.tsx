@@ -65,7 +65,7 @@ export default function HomePageComponent({posts}) {
 					<OnlineFriends aria-label="online friends" />
 				</div>
 				<div className="sm:max-w-[70%] flex flex-wrap">
-				{posts.map((item, index) => (
+				{posts.length > 0? (posts.map((item, index) => (
 					<Posts 
 						key={item.id}
 						username={`${item.user.first_name} ${item.user.last_name}`}
@@ -73,7 +73,7 @@ export default function HomePageComponent({posts}) {
 						content={item.content}
 						profile_img={`${static_url}/${item.user.profile_pic_name}`}
 					/>
-				))}
+				))): (<p>No posts found</p>)}
 				<Spacer x={2} />
 				</div>
 				<Modal backdrop="blur" isDismissable={false} isOpen={isOpen} onOpenChange={onOpenChange}>
